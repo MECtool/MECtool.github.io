@@ -155,3 +155,20 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+/* Hide spin buttons in readonly inputs for Webkit browsers */
+input[type="number"][readonly]::-webkit-inner-spin-button,
+input[type="number"][readonly]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hide spin buttons in readonly inputs for Firefox */
+input[type="number"][readonly] {
+    -moz-appearance: textfield;
+}
+
+/* General style to remove spin button for all browsers supporting appearance */
+input[type="number"][readonly] {
+    appearance: textfield;
+}
