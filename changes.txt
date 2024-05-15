@@ -1,0 +1,17 @@
+Sure, here's a summary of the changes you made:
+
+1. **Daily Dose Input**: Added a note to "Enter daily dose (mg)" for all prescribed drugs except for Fentanyl.
+
+2. **Drug Name Changes**:
+   - Changed "Kadian" to "Morphine - Oral".
+   - Changed "Fentany!" to "Fentanyl - Transdermal".
+   - Changed "Oxycodone" to "Oxycodone - Oral".
+
+3. **Dosage Format Change**:
+   - For Fentanyl - Transdermal, modified the dosage input to "Enter total dose (mcg/hr)".
+
+4. **Street Fentanyl Conversion**:
+   - Updated the formula to: (Number of points * 100) / (Percentage * 0.01) * (0.01) (Conversion to mg of morphine).
+   
+5. **MEQ Conversion**:
+   - Added "mg" beside each MEQ and rounded to the nearest whole number.
