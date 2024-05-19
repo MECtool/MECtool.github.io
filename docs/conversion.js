@@ -8,9 +8,9 @@ function methadoneMEQ(dose) {
 }
 
 // Function to safely parse float and default to zero if NaN
-function safeParseFloat(value) {
+function safeParseFloat(value, defaultValue = 0) {
     const parsed = parseFloat(value);
-    return isNaN(parsed) ? 0 : parsed;
+    return isNaN(parsed) ? defaultValue : parsed;
 }
 
 function resetInputs() {
@@ -35,7 +35,11 @@ function updateMorphineEquivalence() {
     let fentanyl = safeParseFloat(document.getElementById('fentanyl').value);
     let oxycodone = safeParseFloat(document.getElementById('oxycodone').value);
     let SfentanylPts = safeParseFloat(document.getElementById('SfentanylPts').value);
-    let SfentanylPct = safeParseFloat(document.getElementById('SfentanylPct').value);
+    let SfentanylPct = safeParseFloat(document.getElementById('SfentanylPct').value, 4); // Default to 4%
+
+    // Log values for debugging
+    console.log('SfentanylPts:', SfentanylPts);
+    console.log('SfentanylPct:', SfentanylPct);
 
     // Conversion calculations for each drug, rounded to nearest whole number
     let m0 = Math.round(hmo * 4) + ' mg';
@@ -65,10 +69,8 @@ function updateMorphineEquivalence() {
     document.getElementById('totalMorphine').textContent = totalMorphine + ' mg'; // Display as whole number
 }
 
-
 // Initialization and event listeners
 document.querySelectorAll('input[type="number"]').forEach(input => {
     input.addEventListener('input', updateMorphineEquivalence);
 });
 document.addEventListener('DOMContentLoaded', updateMorphineEquivalence);
-
