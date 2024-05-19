@@ -37,33 +37,34 @@ function updateMorphineEquivalence() {
     let SfentanylPts = safeParseFloat(document.getElementById('SfentanylPts').value);
     let SfentanylPct = safeParseFloat(document.getElementById('SfentanylPct').value);
 
-    // Conversion calculations for each drug
-    let m0 = (hmo * 4).toFixed(2);
-    let m1 = (hmiv * 5).toFixed(2);
-    let m2 = kadian.toFixed(2);
-    let m3 = methadoneMEQ(methadone).toFixed(2);
-    let m4 = (fentanyl * 4).toFixed(2);
-    let m5 = (oxycodone * 1.5).toFixed(2);
-    let m6 = (SfentanylPts * SfentanylPct / 100).toFixed(2); // Assuming percentage calculation
+    // Conversion calculations for each drug, rounded to nearest whole number
+    let m0 = Math.round(hmo * 4) + ' mg';
+    let m1 = Math.round(hmiv * 5) + ' mg';
+    let m2 = Math.round(kadian) + ' mg';
+    let m3 = Math.round(methadoneMEQ(methadone)) + ' mg';
+    let m4 = Math.round(fentanyl * 4) + ' mg';
+    let m5 = Math.round(oxycodone * 1.5) + ' mg';
+    let m6 = Math.round(SfentanylPts * SfentanylPct / 100) + ' mg'; // Assuming percentage calculation
 
     // Display converted values
-    document.getElementById('m0').value = m0;
-    document.getElementById('m1').value = m1;
-    document.getElementById('m2').value = m2;
-    document.getElementById('m3').value = m3;
-    document.getElementById('m4').value = m4;
-    document.getElementById('m5').value = m5;
-    document.getElementById('m6').value = m6;
+    document.getElementById('m0').placeholder = m0;
+    document.getElementById('m1').placeholder = m1;
+    document.getElementById('m2').placeholder = m2;
+    document.getElementById('m3').placeholder = m3;
+    document.getElementById('m4').placeholder = m4;
+    document.getElementById('m5').placeholder = m5;
+    document.getElementById('m6').placeholder = m6;
 
     // Calculate the subtotal for the first six drugs
-    let subtotal = parseFloat(m0) + parseFloat(m1) + parseFloat(m2) +
-                   parseFloat(m3) + parseFloat(m4) + parseFloat(m5);
-    document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+    let subtotal = Math.round(parseFloat(m0)) + Math.round(parseFloat(m1)) + Math.round(parseFloat(m2)) +
+                   Math.round(parseFloat(m3)) + Math.round(parseFloat(m4)) + Math.round(parseFloat(m5));
+    document.getElementById('subtotal').textContent = subtotal + ' mg'; // Display as whole number
 
     // Calculate the total Morphine Equivalence for all drugs
-    let totalMorphine = subtotal + parseFloat(m6);
-    document.getElementById('totalMorphine').textContent = totalMorphine.toFixed(2);
+    let totalMorphine = subtotal + Math.round(parseFloat(m6));
+    document.getElementById('totalMorphine').textContent = totalMorphine + ' mg'; // Display as whole number
 }
+
 
 // Initialization and event listeners
 document.querySelectorAll('input[type="number"]').forEach(input => {
