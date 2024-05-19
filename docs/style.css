@@ -78,6 +78,7 @@ input[type="number"] {
 
 input[type="number"] {
     flex: 1;
+    font-size: 1px;
 }
 
 /* Ensure consistent sizing and alignment */
@@ -87,9 +88,57 @@ input, label, button {
 }
 
 /* Responsive typography */
-@media only screen and (max-width: 600px) {
+/* Adjustments for 390 x 844 px screen size */
+
+@media only screen and (width: 390px) and (height: 844px) {
     body {
+        font-size: 10px;
+    }
+    h1 {
+        font-size: 18px;
+    }
+    h2 {
+        font-size: 16px;
+    }
+    h3 {
+        font-size: 14px;
+    }
+    h4 {
         font-size: 12px;
+    }
+    h5 {
+        font-size: 10px;
+    }
+    h6 {
+        font-size: 8px;
+    }
+    label, input, button {
+        font-size: 10px;
+    }
+    .col-6, .col-md-4 {
+        flex: 1 1 50%; /* Equal width for both columns */
+        max-width: 50%;
+        padding: 5px; /* Adjust padding for spacing */
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 -5px; /* Adjust margin for spacing */
+    }
+}
+
+@media only screen and (width: 390px) and (height: 844px) {
+    ::placeholder {
+        font-size: 10px; /* Adjust placeholder font size for smaller screens */
+    }
+}
+
+/* Additional responsive adjustments for iPhone 14 Pro (430 x 932px) */
+@media only screen and (width: 430px) and (height: 932px) {
+    body {
+        font-size: 14px;
     }
     h1 {
         font-size: 22px;
@@ -112,13 +161,22 @@ input, label, button {
     label, input, button {
         font-size: 12px;
     }
-    .col-6 {
-        flex: 1 1 100%;
-        max-width: 100%;
+    .col-6, .col-md-4 {
+        flex: 1 1 50%; /* Equal width for both columns */
+        max-width: 50%;
+        padding: 5px; /* Adjust padding for spacing */
     }
-    .col-md-4 {
-        flex: 1 1 100%;
-        max-width: 100%;
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 -5px; /* Adjust margin for spacing */
+    }
+
+    /* Adjust placeholder text size */
+    ::placeholder {
+        font-size: 12px;
     }
 }
 
