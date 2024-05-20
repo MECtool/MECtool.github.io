@@ -48,7 +48,7 @@ function updateMorphineEquivalence() {
     let m3 = Math.round(methadoneMEQ(methadone)) + ' mg';
     let m4 = Math.round(fentanyl * 4) + ' mg';
     let m5 = Math.round(oxycodone * 1.5) + ' mg';
-    let m6 = Math.round(SfentanylPts * SfentanylPct / 100) + ' mg'; // Assuming percentage calculation
+    let m6 = Math.round(SfentanylPts * SfentanylPct * 100) + ' mg'; // Assuming percentage calculation
 
     // Display converted values
     document.getElementById('m0').placeholder = m0;
