@@ -35,7 +35,7 @@ function updateMorphineEquivalence() {
     let fentanyl = safeParseFloat(document.getElementById('fentanyl').value);
     let oxycodone = safeParseFloat(document.getElementById('oxycodone').value);
     let SfentanylPts = safeParseFloat(document.getElementById('SfentanylPts').value);
-    let SfentanylPct = safeParseFloat(document.getElementById('SfentanylPct').value, 4); // Default to 4%
+    let SfentanylPct = safeParseFloat(document.getElementById('SfentanylPct').value, 4.4); // Default to 4.4%
 
     // Log values for debugging
     console.log('SfentanylPts:', SfentanylPts);
