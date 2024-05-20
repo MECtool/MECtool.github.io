@@ -28,7 +28,7 @@ input[type="number"] {
 }
 
 input::placeholder {
-    font-size: 0.8em;
+    font-size: 0.73em;
 }
 
 /* Flexbox layout */
@@ -56,18 +56,13 @@ input::placeholder {
     margin: -10px;
 }
 
-.col-6, .col-md-4, .col-12 {
+.col-md-6 {
     padding: 10px;
 }
 
-.col-6 {
-    flex: 1 1 45%;
-    max-width: 45%;
-}
-
-.col-md-4 {
-    flex: 1 1 30%;
-    max-width: 30%;
+.col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
 }
 
 .col-12 {
@@ -119,7 +114,7 @@ input, label, button {
     label, input, button {
         font-size: 10px;
     }
-    .col-6, .col-md-4 {
+    .col-md-6 {
         flex: 1 1 50%; /* Equal width for both columns */
         max-width: 50%;
         padding: 5px; /* Adjust padding for spacing */
@@ -130,6 +125,7 @@ input, label, button {
         justify-content: space-between;
         margin: 0 -5px; /* Adjust margin for spacing */
     }
+}
 
 input, select, button {
     padding: 10px;
@@ -223,6 +219,7 @@ button:active {
         font-size: 16px; /* Fixed size for mobile devices to maintain readability */
     }
 }
+
 footer {
     background-color: #f8f9fa;
     color: #333;
@@ -234,12 +231,20 @@ footer p {
     line-height: 1.6;
 }
 
+label {
+    text-wrap: nowrap;
+}
+
 footer a {
     color: var(--primary-color);
 }
 
 footer a:hover {
     text-decoration: underline;
+}
+
+.col-md-4 col-12 {
+    padding: 2px 2px
 }
 
 /* Hide spin buttons in readonly inputs for Webkit browsers */
