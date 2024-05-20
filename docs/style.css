@@ -9,40 +9,122 @@
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    font-family: 'Arial', sans-serif;
-}
-
-a, button {
-    color: var(--primary-color);
-}
-
-h1, h2, h3 {
-    font-family: 'Helvetica', sans-serif;
-}
-
-h1 {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 20px;
-    font-weight: normal;
-}
-
-body {
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+p, label, input, button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+input[type="number"] {
+    font-family: 'Poppins', sans-serif;
+}
+
+input::placeholder {
+    font-size: 0.73em;
+}
+
+/* Flexbox layout */
 .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px 0;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
 }
 
 .row {
     display: flex;
-    margin: 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: -10px;
+}
+
+.col-md-6 {
+    padding: 10px;
+}
+
+.col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-12 {
+    flex: 1 1 100%;
+    max-width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="number"] {
+    flex: 1;
+    font-size: 1px;
+}
+
+/* Ensure consistent sizing and alignment */
+input, label, button {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Responsive typography */
+/* Adjustments for 390 x 844 px screen size */
+
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 10px;
+    }
+    h1 {
+        font-size: 18px;
+    }
+    h2 {
+        font-size: 16px;
+    }
+    h3 {
+        font-size: 14px;
+    }
+    h4 {
+        font-size: 12px;
+    }
+    h5 {
+        font-size: 10px;
+    }
+    h6 {
+        font-size: 8px;
+    }
+    label, input, button {
+        font-size: 10px;
+    }
+    .col-md-6 {
+        flex: 1 1 50%; /* Equal width for both columns */
+        max-width: 50%;
+        padding: 5px; /* Adjust padding for spacing */
+    }
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 -5px; /* Adjust margin for spacing */
+    }
 }
 
 input, select, button {
@@ -91,7 +173,7 @@ button:active {
 }
 
 input[type="number"] {
-    font-size: 18px; /* Larger font for easy interaction */
+    font-size: 12px; /* Larger font for easy interaction */
 }
 
 @keyframes button-click {
@@ -137,6 +219,7 @@ button:active {
         font-size: 16px; /* Fixed size for mobile devices to maintain readability */
     }
 }
+
 footer {
     background-color: #f8f9fa;
     color: #333;
@@ -148,12 +231,20 @@ footer p {
     line-height: 1.6;
 }
 
+label {
+    text-wrap: nowrap;
+}
+
 footer a {
     color: var(--primary-color);
 }
 
 footer a:hover {
     text-decoration: underline;
+}
+
+.col-md-4 col-12 {
+    padding: 2px 2px
 }
 
 /* Hide spin buttons in readonly inputs for Webkit browsers */
