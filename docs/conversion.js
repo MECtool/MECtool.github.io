@@ -35,7 +35,7 @@ function updateMorphineEquivalence() {
     let fentanyl = safeParseFloat(document.getElementById('fentanyl').value);
     let oxycodone = safeParseFloat(document.getElementById('oxycodone').value);
     let SfentanylPts = safeParseFloat(document.getElementById('SfentanylPts').value);
-    let SfentanylPct = safeParseFloat(document.getElementById('SfentanylPct').value, 4); // Default to 4%
+    let SfentanylPct = safeParseFloat(document.getElementById('SfentanylPct').value, 4.4); // Default to 4%
 
     // Log values for debugging
     console.log('SfentanylPts:', SfentanylPts);
@@ -48,7 +48,7 @@ function updateMorphineEquivalence() {
     let m3 = Math.round(methadoneMEQ(methadone)) + ' mg';
     let m4 = Math.round(fentanyl * 4) + ' mg';
     let m5 = Math.round(oxycodone * 1.5) + ' mg';
-    let m6 = Math.round(SfentanylPts * SfentanylPct / 100) + ' mg'; // Assuming percentage calculation
+    let m6 = Math.round(SfentanylPts * (SfentanylPct * 100)) + ' mg'; // Assuming percentage calculation
 
     // Display converted values
     document.getElementById('m0').placeholder = m0;
