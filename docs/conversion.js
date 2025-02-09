@@ -34,6 +34,8 @@ function updateMorphineEquivalence() {
     let methadone = safeParseFloat(document.getElementById('methadone').value);
     let fentanyl = safeParseFloat(document.getElementById('fentanyl').value);
     let oxycodone = safeParseFloat(document.getElementById('oxycodone').value);
+    // NEW: Sufentanil input (daily dose in mcg)
+    let sufentanil = safeParseFloat(document.getElementById('sufentanil')?.value);
     let SfentanylPts = safeParseFloat(document.getElementById('SfentanylPts').value);
     let SfentanylPct = safeParseFloat(document.getElementById('SfentanylPct').value, 4.4); // Default to 4%
 
@@ -48,6 +50,14 @@ function updateMorphineEquivalence() {
     let m3 = Math.round(methadoneMEQ(methadone)) + ' mg';
     let m4 = Math.round(fentanyl * 4) + ' mg';
     let m5 = Math.round(oxycodone * 1.5) + ' mg';
+    // NEW: Sufentanil => 1 mcg = 3 mg morphine
+    // If user entered X mcg, total mg = X * 3
+    let sufentanilMEQ = 0;
+    if (sufentanil > 0) {
+        sufentanilMEQ = sufentanil * 3;
+    }
+    let m7 = Math.round(sufentanilMEQ) + ' mg';
+
     let m6 = Math.round(SfentanylPts * (SfentanylPct * 100)) + ' mg'; // Assuming percentage calculation
 
     // Display converted values
@@ -57,11 +67,15 @@ function updateMorphineEquivalence() {
     document.getElementById('m3').placeholder = m3;
     document.getElementById('m4').placeholder = m4;
     document.getElementById('m5').placeholder = m5;
+    // NEW: Display the Sufentanil MEQ
+    if (document.getElementById('m7')) {
+        document.getElementById('m7').placeholder = m7;
+    }
     document.getElementById('m6').placeholder = m6;
 
     // Calculate the subtotal for the first six drugs
     let subtotal = Math.round(parseFloat(m0)) + Math.round(parseFloat(m1)) + Math.round(parseFloat(m2)) +
-                   Math.round(parseFloat(m3)) + Math.round(parseFloat(m4)) + Math.round(parseFloat(m5));
+                   Math.round(parseFloat(m3)) + Math.round(parseFloat(m4)) + Math.round(parseFloat(m5)) + Math.round(parseFloat(m7));
     document.getElementById('subtotal').textContent = subtotal + ' mg'; // Display as whole number
 
     // Calculate the total Morphine Equivalence for all drugs
