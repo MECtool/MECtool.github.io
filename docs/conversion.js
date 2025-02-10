@@ -44,7 +44,13 @@ function updateMorphineEquivalence() {
     console.log('SfentanylPct:', SfentanylPct);
 
     // Conversion calculations for each drug, rounded to nearest whole number
-    let m0 = Math.round(hmo * 4) + ' mg';
+    //NEW hmo without negative inputs
+    let hmoMEQ = 0;
+    if (hmo > 0) {
+        hmoMEQ = hmo * 4;
+    }
+    let m0 = Math.round(hmo) + ' mg';
+    
     let m1 = Math.round(hmiv * 5) + ' mg';
     let m2 = Math.round(kadian) + ' mg';
     let m3 = Math.round(methadoneMEQ(methadone)) + ' mg';
