@@ -82,13 +82,6 @@ function updateMorphineEquivalence() {
         oxycodoneMEQ = oxycodone * 1.5;
     }
     let m5 = Math.round(oxycodoneMEQ) + ' mg';
-
-    //NEW: Oxycodone without negative inputs
-    let oxycodoneMEQ = 0;
-    if (oxycodone > 0) {
-        oxycodoneMEQ = oxycodone * 1.5;
-    }
-    let m5 = Math.round(oxycodoneMEQ) + ' mg';
     
     // NEW: Sufentanil => 1 mcg = 3 mg morphine
     // If user entered X mcg, total mg = X * 3
