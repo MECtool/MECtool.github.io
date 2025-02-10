@@ -49,7 +49,16 @@ function updateMorphineEquivalence() {
     let m2 = Math.round(kadian) + ' mg';
     let m3 = Math.round(methadoneMEQ(methadone)) + ' mg';
     let m4 = Math.round(fentanyl * 4) + ' mg';
-    let m5 = Math.round(oxycodone * 1.5) + ' mg';
+    //let m5 = Math.round(oxycodone * 1.5) + ' mg';
+
+    //NEW: Oxycodone without negative inputs UNFINISHED
+    let oxycodoneMEQ = 0;
+    if (oxycodone > 0) {
+        oxycodoneMEQ = oxycodone * 1.5;
+    }
+    let m5 = Math.round(oxycodoneMEQ) + ' mg';
+    //NEW: Oxycodone without negative inputs UNFINISHED
+    
     // NEW: Sufentanil => 1 mcg = 3 mg morphine
     // If user entered X mcg, total mg = X * 3
     let sufentanilMEQ = 0;
