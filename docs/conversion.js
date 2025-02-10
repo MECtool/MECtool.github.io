@@ -44,12 +44,52 @@ function updateMorphineEquivalence() {
     console.log('SfentanylPct:', SfentanylPct);
 
     // Conversion calculations for each drug, rounded to nearest whole number
-    let m0 = Math.round(hmo * 4) + ' mg';
-    let m1 = Math.round(hmiv * 5) + ' mg';
-    let m2 = Math.round(kadian) + ' mg';
+    //NEW hmo without negative inputs
+    let hmoMEQ = 0;
+    if (hmo > 0) {
+        hmoMEQ = hmo * 4;
+    }
+    let m0 = Math.round(hmoMEQ) + ' mg';
+    
+       //NEW hmiv without negative inputs
+    let hmivMEQ = 0;
+    if (hmiv > 0) {
+        hmivMEQ = hmiv * 5;
+    }
+    let m1 = Math.round(hmivMEQ) + ' mg';
+
+    //NEW: Kadian without negative inputs
+    let kadianMEQ = 0;
+    if (kadian > 0) {
+        kadianMEQ = kadian;
+    }
+    let m2 = Math.round(kadianMEQ) + ' mg';
+
+    //Excludes negative inputs via helper function
     let m3 = Math.round(methadoneMEQ(methadone)) + ' mg';
-    let m4 = Math.round(fentanyl * 4) + ' mg';
-    let m5 = Math.round(oxycodone * 1.5) + ' mg';
+
+    //NEW: Fentanyl without negative inputs
+    let fentanylMEQ = 0;
+    if (fentanyl > 0) {
+        fentanylMEQ = fentanyl * 4;
+    }
+    let m4 = Math.round(fentanylMEQ) + ' mg';
+    
+
+    //NEW: Oxycodone without negative inputs 
+    let oxycodoneMEQ = 0;
+    if (oxycodone > 0) {
+        oxycodoneMEQ = oxycodone * 1.5;
+    }
+    let m5 = Math.round(oxycodoneMEQ) + ' mg';
+
+    //NEW: Oxycodone without negative inputs
+    let oxycodoneMEQ = 0;
+    if (oxycodone > 0) {
+        oxycodoneMEQ = oxycodone * 1.5;
+    }
+    let m5 = Math.round(oxycodoneMEQ) + ' mg';
+    
     // NEW: Sufentanil => 1 mcg = 3 mg morphine
     // If user entered X mcg, total mg = X * 3
     let sufentanilMEQ = 0;
