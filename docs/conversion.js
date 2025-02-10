@@ -49,14 +49,14 @@ function updateMorphineEquivalence() {
     if (hmo > 0) {
         hmoMEQ = hmo * 4;
     }
-    let m0 = Math.round(hmo) + ' mg';
+    let m0 = Math.round(hmoMEQ) + ' mg';
     
        //NEW hmiv without negative inputs
     let hmivMEQ = 0;
     if (hmiv > 0) {
         hmivMEQ = hmiv * 5;
     }
-    let m1 = Math.round(hmiv) + ' mg';
+    let m1 = Math.round(hmivMEQ) + ' mg';
 
     //NEW: Kadian without negative inputs
     let kadianMEQ = 0;
