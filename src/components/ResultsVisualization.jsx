@@ -24,16 +24,22 @@ const ResultsVisualization = () => {
 
     const handleDownload = async () => {
         if (cardRef.current) {
-            const canvas = await html2canvas(cardRef.current, {
-                scale: 2, // High resolution
-                backgroundColor: null, // Transparent background if possible, or use theme color
-                useCORS: true
-            });
+            try {
+                const canvas = await html2canvas(cardRef.current, {
+                    scale: 2, // High resolution
+                    backgroundColor: '#ffffff', // Force white background to prevent corruption/transparency issues
+                    useCORS: true,
+                    logging: false
+                });
 
-            const link = document.createElement('a');
-            link.download = `morphine-breakdown-${new Date().toISOString().split('T')[0]}.png`;
-            link.href = canvas.toDataURL('image/png');
-            link.click();
+                const link = document.createElement('a');
+                link.download = `morphine-breakdown-${new Date().toISOString().split('T')[0]}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            } catch (error) {
+                console.error("Snapshot generation failed:", error);
+                alert("Failed to generate snapshot. Please try again.");
+            }
         }
     };
 
