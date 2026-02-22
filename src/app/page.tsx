@@ -223,28 +223,28 @@ export default function Calculator() {
             Morphine Equivalence Calculator is for general informational
             purposes only. It is not intended to be a substitute for
             professional medical advice, diagnosis, or treatment.{" "}
-            <a href="#disclaimer" className="text-primary hover:underline">
+            <a href="/legal#disclaimer" className="text-primary hover:underline">
               Read more
             </a>
           </p>
           <p>
             <strong>Privacy Policy:</strong> This website collects no personal
             data from its users, except for anonymous analytics.{" "}
-            <a href="#privacy" className="text-primary hover:underline">
+            <a href="/legal#privacy" className="text-primary hover:underline">
               Read more
             </a>
           </p>
           <p>
             <strong>Terms of Use:</strong> By using our website, you agree to
             comply with and be bound by our terms of use.{" "}
-            <a href="#terms" className="text-primary hover:underline">
+            <a href="/legal#terms" className="text-primary hover:underline">
               Read more
             </a>
           </p>
           <p>
             <strong>Accessibility Statement:</strong> We are committed to
             ensuring digital accessibility for people with disabilities.{" "}
-            <a href="#accessibility" className="text-primary hover:underline">
+            <a href="/legal#accessibility" className="text-primary hover:underline">
               Read more
             </a>
           </p>
