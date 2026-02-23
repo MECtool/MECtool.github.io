@@ -71,7 +71,7 @@ export default function Calculator() {
             {DRUGS.map((drug) => (
               <div
                 key={drug.id}
-                className="grid grid-cols-1 sm:grid-cols-[1fr_140px] gap-2 sm:gap-4 items-center"
+                className="grid grid-cols-1 sm:grid-cols-[1fr_140px] gap-2 sm:gap-4 items-end"
               >
                 {/* Input side */}
                 <div>
@@ -100,7 +100,7 @@ export default function Calculator() {
                 </div>
 
                 {/* MEQ output */}
-                <div className="flex items-center sm:items-end sm:pb-0.5">
+                <div className="flex items-center">
                   <span className="text-sm font-semibold text-text/60 sm:hidden mr-2">
                     MEQ:
                   </span>
